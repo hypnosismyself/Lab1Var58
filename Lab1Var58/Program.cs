@@ -18,14 +18,17 @@ namespace Lab1Var58
             var Rows = GetFileData();
 
             //  шапка таблицы
-            Console.WriteLine($"№ | X | Y | Результат");
+            Console.WriteLine($"№\tX\tY\tРезультат");
 
             //  построчный вывод таблицы
             foreach (string[] row in Rows.Item1)
-                Console.WriteLine($"{row[0]} | {row[1]} | {row[2]} | {row[3]}");
+                Console.WriteLine($"{row[0]}\t{row[1]}\t{row[2]}\t{row[3]}");
 
-            Console.WriteLine("\nВ ходе выполнения возникли следующие ошибки:");
-            Console.WriteLine(Rows.Item2);
+            if (Rows.Item2 != "")
+            { 
+                Console.WriteLine("\nВ ходе выполнения возникли следующие ошибки:");
+                Console.WriteLine(Rows.Item2);
+            }
         }
 
         static (List<string[]>, string) GetFileData()
